@@ -64,6 +64,6 @@ public abstract class Libro extends Producto implements Comparable<Libro>{
         return this.isbn.compareTo(o.isbn);
     }
     
-    
+    public abstract void dejarDeLeer();
     
 }

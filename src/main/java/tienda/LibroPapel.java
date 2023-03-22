@@ -37,6 +37,11 @@ public final class LibroPapel extends Libro implements SeEnvia{
     public void enviar(String direccion) {
         System.out.println("El libro de papel (LIBRO) se envia a la direccion "+direccion);
     }
+
+    @Override
+    public void dejarDeLeer() {
+        System.out.println("Se ha cerrado el libro");
+    }
     
     
     

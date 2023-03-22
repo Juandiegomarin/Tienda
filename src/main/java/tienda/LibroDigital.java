@@ -34,6 +34,11 @@ public final class LibroDigital extends Libro implements SeDescarga{
     public void descargar() {
         System.out.println("http://JuanDiegoMarin.daw/"+this.hashCode());
     }
+
+    @Override
+    public void dejarDeLeer() {
+        System.out.println("Se ha cerrado la aplicacion donde se encuentra el libro");
+    }
     
     
 }

@@ -2,6 +2,7 @@ package tienda;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 public class MiTienda {
 
@@ -57,9 +58,73 @@ public class MiTienda {
 
         }
         
+
+        
+        for (Iterator<Libro> iterator = libros.iterator(); iterator.hasNext();) {
+            
+            System.out.println(iterator.next());
+            
+        }
+        
+        System.out.println("------------------------------------");
+        System.out.println("Ordenar isbn");
+        Collections.sort(libros);
+        
         libros.forEach(System.out::println);
         
-        System.out.println("-----------------------------------");
+        System.out.println("-------------------------------------");
+        System.out.println("Ejecutar interfaz segun libro");
+        
+        for (Libro libro : libros) {
+            
+            if(libro instanceof LibroDigital){
+                ((LibroDigital) libro).descargar();
+                //Explicita
+            }
+            
+             if(libro instanceof LibroPapel){
+                ((LibroPapel) libro).enviar("Ies Mar de Alboran");
+                //Explicita
+            }
+            
+        }
+        System.out.println("--------------------------------------");
+        
+        System.out.println("Contiene la lista de libros el libro l1");
+        System.out.println(libros.contains(l1));
+        
+        System.out.println("----------------------------------------");
+        
+        System.out.println("Lista de productos enviables");
+        
+        ArrayList<SeEnvia> enviables= new ArrayList<>();
+        
+        for (Producto p : productos) {
+            
+            if(p instanceof SeEnvia){
+                enviables.add((SeEnvia)p);
+            }
+            
+        }
+        
+        enviables.forEach(System.out::println);
+        
+        System.out.println("------------------------------");
+        
+        System.out.println("Enviar productos");
+        
+        for (SeEnvia e : enviables) {
+            e.enviar("Ies Mar de Alboran");
+        }
+        
+        System.out.println("--------------------------------");
+        
+        System.out.println("Metodo nuevo abstracto");
+        
+        for (Libro l : libros) {
+            l.dejarDeLeer();
+        }
+        
     }
 
 }
