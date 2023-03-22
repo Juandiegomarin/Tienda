@@ -25,34 +25,41 @@ public class MiTienda {
         productos.add(l2);
         productos.add(m1);
         productos.add(m2);
-        
-        
-        
-        
+
         System.out.println("--------------------------------");
         System.out.println("Lista de productos");
         productos.forEach(System.out::println);
         System.out.println("--------------------------------");
 
-        
-        
-        
         System.out.println("Ordenada por precios");
         productos.sort((p1, p2) -> Double.compare(p1.getPrecio(), p2.getPrecio()));
         productos.forEach(System.out::println);
 
         System.out.println("--------------------------------");
-        
-        
+
         System.out.println("Ordenada por codigo");
         productos.sort((p1, p2) -> p1.getCodigo().compareTo(p2.getCodigo()));
         productos.forEach(System.out::println);
 
         System.out.println("--------------------------------");
+
+        System.out.println("El producto con codigo 1 esta en la posicion " + Collections.binarySearch(productos, pt1, (p1, p2) -> p1.getCodigo().compareTo(p2.getCodigo())));
+
+        System.out.println("---------------------------------");
+
+        System.out.println("Guardar libros");
+
+        for (Producto producto : productos) {
+
+            if (producto instanceof Libro) {
+                libros.add((Libro) producto);
+            }
+
+        }
         
-        System.out.println("El producto con codigo 1 esta en la posicion "+Collections.binarySearch(productos, pt1,(p1, p2) -> p1.getCodigo().compareTo(p2.getCodigo())));
+        libros.forEach(System.out::println);
         
-        System.out.println("");
+        System.out.println("-----------------------------------");
     }
 
 }
